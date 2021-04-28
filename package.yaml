@@ -1,0 +1,48 @@
+name: spelling-bee
+version: 0.1.0.0
+github: "githubuser/spelling-bee"
+license: BSD3
+author: "Michael Bleau"
+maintainer: "michael.r.bleau@gmail.com"
+copyright: "2021 Michael Bleau"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Simple Implementation of NYT Spelling Bee puzzle
+# category:            CLI
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/githubuser/spelling-bee#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  spelling-bee-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - spelling-bee
+
+tests:
+  spelling-bee-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - spelling-bee
